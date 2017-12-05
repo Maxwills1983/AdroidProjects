@@ -9,9 +9,31 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="express.gxc.com.helloworld.MainActivity">
-
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Hello World!"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        tools:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintLeft_toLeftOf="parent" />
+
 </RelativeLayout>
