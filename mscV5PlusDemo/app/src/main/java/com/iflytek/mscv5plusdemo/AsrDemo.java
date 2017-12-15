@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.TextUtils;
@@ -56,6 +57,8 @@ public class AsrDemo extends Activity implements OnClickListener{
 	private  final String GRAMMAR_TYPE_ABNF = "abnf";
 	private  final String GRAMMAR_TYPE_BNF = "bnf";
 
+	AudioManager mAudioManager;
+
 	private String mEngineType = "cloud";
 	@SuppressLint("ShowToast")
 	public void onCreate(Bundle savedInstanceState)
@@ -85,6 +88,7 @@ public class AsrDemo extends Activity implements OnClickListener{
 	 * 初始化Layout。
 	 */
 	private void initLayout(){
+		mAudioManager =(AudioManager)getSystemService(this.AUDIO_SERVICE);
 		findViewById(R.id.isr_recognize).setOnClickListener(this);
 		
 		findViewById(R.id.isr_grammar).setOnClickListener(this);
@@ -195,7 +199,8 @@ public class AsrDemo extends Activity implements OnClickListener{
 					showTip("请先构建语法。");
 					return;
 				};
-				
+				mAudioManager.setBluetoothScoOn(true);
+				mAudioManager.startBluetoothSco();
 				ret = mAsr.startListening(mRecognizerListener);
 				if (ret != ErrorCode.SUCCESS) {
 					showTip("识别失败,错误码: " + ret);	

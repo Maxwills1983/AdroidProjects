@@ -33,6 +33,7 @@ import com.iflytek.speech.setting.IatSettings;
 import com.iflytek.speech.util.FucUtil;
 import com.iflytek.speech.util.JsonParser;
 
+//git test 1
 public class IatDemo extends Activity implements OnClickListener{
 	private static String TAG = "IatDemo";
 	// 语音听写对象

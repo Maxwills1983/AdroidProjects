@@ -7,9 +7,9 @@
 
     <application
         android:icon="@drawable/icon"
-        android:name="SpeechApp"
+        android:name="mscv5plusdemo"
         android:label="讯飞语音示例v5+"
-        >
+         >
         <activity
             android:name="com.iflytek.mscv5plusdemo.MainActivity"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale"
@@ -76,7 +76,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.WRITE_SETTINGS" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>
