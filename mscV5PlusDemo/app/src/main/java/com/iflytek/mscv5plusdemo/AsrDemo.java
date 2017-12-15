@@ -34,6 +34,7 @@ import com.iflytek.speech.util.FucUtil;
 import com.iflytek.speech.util.JsonParser;
 import com.iflytek.speech.util.XmlParser;
 
+//tetst
 public class AsrDemo extends Activity implements OnClickListener{
 	private static String TAG = AsrDemo.class.getSimpleName();
 	// 语音识别对象
