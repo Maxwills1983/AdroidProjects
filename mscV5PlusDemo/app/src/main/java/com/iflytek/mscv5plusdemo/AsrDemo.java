@@ -2,6 +2,7 @@ package com.iflytek.mscv5plusdemo;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.media.AudioManager;
@@ -70,11 +71,11 @@ public class AsrDemo extends Activity implements OnClickListener{
 		initLayout();
 		
 		// 初始化识别对象
-		mAsr = SpeechRecognizer.createRecognizer(this, mInitListener);		
+		mAsr = SpeechRecognizer.createRecognizer(this, mInitListener);
 
 		// 初始化语法、命令词
 		mLocalLexicon = "张海羊\n刘婧\n王锋\n";
-		mLocalGrammar = FucUtil.readFile(this,"call.bnf", "utf-8");
+		mLocalGrammar = FucUtil.readFile(this,"switch.bnf", "utf-8");
 		mCloudGrammar = FucUtil.readFile(this,"grammar_sample.abnf","utf-8");
 		
 		// 获取联系人，本地更新词典时使用
@@ -89,7 +90,7 @@ public class AsrDemo extends Activity implements OnClickListener{
 	 * 初始化Layout。
 	 */
 	private void initLayout(){
-		mAudioManager =(AudioManager)getSystemService(this.AUDIO_SERVICE);
+		mAudioManager =(AudioManager)getSystemService(Context.AUDIO_SERVICE);
 		findViewById(R.id.isr_recognize).setOnClickListener(this);
 		
 		findViewById(R.id.isr_grammar).setOnClickListener(this);
@@ -184,10 +185,10 @@ public class AsrDemo extends Activity implements OnClickListener{
 				// 设置语法构建路径
 				mAsr.setParameter(ResourceUtil.GRM_BUILD_PATH, grmPath);
 				// 设置语法名称
-				mAsr.setParameter(SpeechConstant.GRAMMAR_LIST, "call");
+				mAsr.setParameter(SpeechConstant.GRAMMAR_LIST, "switch");
 				// 设置文本编码格式
 				mAsr.setParameter(SpeechConstant.TEXT_ENCODING,"utf-8");
-				ret = mAsr.updateLexicon("contact", mContent, lexiconListener);
+				ret = mAsr.updateLexicon("scenes", mContent, lexiconListener);
 				if(ret != ErrorCode.SUCCESS){
 					showTip("更新词典失败,错误码：" + ret);
 				}
@@ -380,7 +381,7 @@ public class AsrDemo extends Activity implements OnClickListener{
 			// 设置返回结果格式
 			mAsr.setParameter(SpeechConstant.RESULT_TYPE, mResultType);
 			// 设置本地识别使用语法id
-			mAsr.setParameter(SpeechConstant.LOCAL_GRAMMAR, "call");
+			mAsr.setParameter(SpeechConstant.LOCAL_GRAMMAR, "switch");
 			// 设置识别的门限值
 			mAsr.setParameter(SpeechConstant.MIXED_THRESHOLD, "30");
 			// 使用8k音频的时候请解开注释
