@@ -1,12 +1,21 @@
 package com.iflytek.mscv5plusdemo;
 
 import android.app.Application;
+import android.support.annotation.NonNull;
 
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 public class mscv5plusdemo extends Application{
-  
+
+	public static Map<String,String> subjectsMap = new HashMap<String, String>() ;
+	public static Map<String,String> ScenesMap = new HashMap<String, String>() ;
+
 	@Override
 	public void onCreate() {
 		// 应用程序入口处调用,避免手机内存过小,杀死后台进程后通过历史intent进入Activity造成SpeechUtility对象为null
@@ -24,4 +33,6 @@ public class mscv5plusdemo extends Application{
 		SpeechUtility.createUtility(mscv5plusdemo.this, param.toString());
 		super.onCreate();
 	}
+
+
 }
